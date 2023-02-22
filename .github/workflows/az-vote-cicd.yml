@@ -30,6 +30,7 @@ jobs:
         TASKNAME: FRONTEND_IMAGE   
       uses: Azure/cli@v1.0.7
       with:
+        azcliversion: 2.44.1
         inlineScript:  |
           chmod +x $GITHUB_WORKSPACE/utils/buildContainerTemplate.sh
           $GITHUB_WORKSPACE/utils/buildContainerTemplate.sh -f $SRC_FOLDER \
