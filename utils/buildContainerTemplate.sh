@@ -31,7 +31,7 @@ popd
 
 # If the image with the generated tag doesn't already exist, build it.
 if ! az acr repository show -n $AZ_ACR_NAME --image "$REPOSITORY:$imageTag" -o table; then
-    echo $(az acr list -o table)
+    az acr list -o table
     echo No match found. Container will be built.
     echo Tag for new container: $imageTag
     az acr build \
