@@ -28,7 +28,7 @@ jobs:
         DOCKER_FILE: Dockerfile
         REPOSITORY: azvote/azure-vote-front
         TASKNAME: FRONTEND_IMAGE   
-      uses: Azure/cli@2.45.0
+      uses: Azure/cli@2.44.1
       with:
         inlineScript:  |
           chmod +x $GITHUB_WORKSPACE/utils/buildContainerTemplate.sh
@@ -45,7 +45,7 @@ jobs:
         DOCKER_FILE: Dockerfile
         REPOSITORY: azvote/azure-vote-back
         TASKNAME: BACKEND_IMAGE   
-      uses: Azure/cli@2.45.0
+      uses: Azure/cli@2.44.1
       with:
         inlineScript:  |
           chmod +x $GITHUB_WORKSPACE/utils/buildContainerTemplate.sh
