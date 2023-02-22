@@ -25,6 +25,7 @@ set -euxo pipefail  # fail on error
 # in alphabetical order, then another checksum of their names and checksums.
 # Running this command on windows-based infrastructure may return a different result due to CRLF
 pushd $GITHUB_WORKSPACE/$SRC_FOLDER/$SOURCE_LOCATION
+git config --global --add safe.directory $GITHUB_WORKSPACE
 imageTag=$(git log -n 1 --format="%H" -- ".")
 popd
   
