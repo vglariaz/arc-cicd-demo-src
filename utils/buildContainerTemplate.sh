@@ -28,11 +28,10 @@ pushd $GITHUB_WORKSPACE/$SRC_FOLDER/$SOURCE_LOCATION
 git config --global --add safe.directory $GITHUB_WORKSPACE
 imageTag=$(git log -n 1 --format="%H" -- ".")
 popd
-  
-echo $(az acr list -o table)
 
 # If the image with the generated tag doesn't already exist, build it.
 if ! az acr repository show -n $AZ_ACR_NAME --image "$REPOSITORY:$imageTag" -o table; then
+    echo $(az acr list -o table)
     echo No match found. Container will be built.
     echo Tag for new container: $imageTag
     az acr build \
