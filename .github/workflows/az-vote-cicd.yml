@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SRC_FOLDER: azure-vote
-      AZ_ACR_NAME: testacivic.azurecr.io
+      AZ_ACR_NAME: testtacivic
     steps:
     - name: Checkout
       uses: actions/checkout@v2.3.4
@@ -28,7 +28,7 @@ jobs:
         DOCKER_FILE: Dockerfile
         REPOSITORY: azvote/azure-vote-front
         TASKNAME: FRONTEND_IMAGE   
-      uses: Azure/cli@1.0.4
+      uses: Azure/cli@2.45.0
       with:
         inlineScript:  |
           chmod +x $GITHUB_WORKSPACE/utils/buildContainerTemplate.sh
@@ -45,7 +45,7 @@ jobs:
         DOCKER_FILE: Dockerfile
         REPOSITORY: azvote/azure-vote-back
         TASKNAME: BACKEND_IMAGE   
-      uses: Azure/cli@1.0.4
+      uses: Azure/cli@2.45.0
       with:
         inlineScript:  |
           chmod +x $GITHUB_WORKSPACE/utils/buildContainerTemplate.sh
